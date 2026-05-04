@@ -39,18 +39,39 @@ export default function App(){
           <h1 className="font-semibold text-4xl">sneakers</h1>
         </div>
         <div className="flex gap-4 items-center">
-          <div className="relative ">
-          <img src="/images/icon-cart.svg" alt="" className="size-4 "/>
+          <div className="relative " >
+          <img src="/images/icon-cart.svg" alt="" className="size-4 "
+          onClick={()=>setCart()}
+
+          />
           {cart && cart.quntity >0 &&(
             <div className="absolute top-[-10px]  right-[-4px] bg-orange-500 px-1 shadow-orange-400 rounded-full text-white text-center text-xs">
               {cart.quntity}
             </div>
           )}
           </div>
+          {cart &&(
+            <div className="p-4 bg-white absolute top-20 rounded-lg ">
+              {cart?(
+                <div>
+                  <h1>Cart</h1><hr />
+                  <div>
+                    <img src={`/images/${cart.image}`} alt="" />
+                    <p>{cart.title}</p>
+                    <p>${cart.price} *{cart.quntity}</p>
+                  </div>
+
+                </div>
+              ):(
+                <p>your cart is empty</p>
+              )}
+
+            </div>
+          )}
 
           <img src="/images/image-avatar.png" alt="" className="size-4"/>
         </div>
-        
+
       </div>
       <div className="relative">{/*img scrol*/}
 
