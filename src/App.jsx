@@ -5,6 +5,7 @@ export default function App(){
   const [isOpen , setIsOpen]=useState(false)
   const [score ,setScore]=useState(0)
   const [next ,setnext]=useState(0)
+  const [cart , setCart]=useState(null)
 
   const prodectImgs=["image-product-1.jpg", "image-product-2.jpg", "image-product-3.jpg", "image-product-4.jpg"]
   return (
@@ -33,13 +34,23 @@ export default function App(){
             </div>
           )}
 
+
           </div>
           <h1 className="font-semibold text-4xl">sneakers</h1>
         </div>
         <div className="flex gap-4 items-center">
-          <img src="/images/icon-cart.svg" alt="" className="size-4"/>
+          <div className="relative ">
+          <img src="/images/icon-cart.svg" alt="" className="size-4 "/>
+          {cart && cart.quntity >0 &&(
+            <div className="absolute top-[-10px]  right-[-4px] bg-orange-500 px-1 shadow-orange-400 rounded-full text-white text-center text-xs">
+              {cart.quntity}
+            </div>
+          )}
+          </div>
+
           <img src="/images/image-avatar.png" alt="" className="size-4"/>
         </div>
+        
       </div>
       <div className="relative">{/*img scrol*/}
 
@@ -79,7 +90,19 @@ export default function App(){
            />
 
         </div>
-        <button className="flex justify-center items-center rounded-lg p-4 bg-orange-500 w-full gap-4 shadow-orange-500 shadow-2xl ">
+        <button className="flex justify-center items-center rounded-lg p-4 bg-orange-500 w-full gap-4 shadow-orange-500 shadow-2xl "
+        onClick={()=>{
+          if(score===0)return
+          setCart(
+            {
+              title:"Fall Limited Edition Sneakers",
+              price:125,
+              quntity:score,
+              img:prodectImgs[0]
+            }
+          )
+        }}
+        >
           <img src="/images/icon-cart.svg" alt=""
           className="brightness-0 "
            />
