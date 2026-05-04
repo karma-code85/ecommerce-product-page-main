@@ -4,6 +4,9 @@ import { useState } from "react"
 export default function App(){
   const [isOpen , setIsOpen]=useState(false)
   const [score ,setScore]=useState(0)
+  const [next ,setnext]=useState(0)
+
+  const prodectImgs=["image-product-1.jpg", "image-product-2.jpg", "image-product-3.jpg", "image-product-4.jpg"]
   return (
 
      <div className=" min-h-screen">
@@ -26,13 +29,10 @@ export default function App(){
                   <li>About</li>
                   <li>Contact</li>
                   </ol>
-
-
               </div>
-
             </div>
-
           )}
+
           </div>
           <h1 className="font-semibold text-4xl">sneakers</h1>
         </div>
@@ -42,10 +42,18 @@ export default function App(){
         </div>
       </div>
       <div className="relative">{/*img scrol*/}
-        <img src="/images/image-product-1.jpg" alt="" className="w-full" />
+
+        <img src={`/images/${prodectImgs[next]}`} alt="" className="w-full" /> {/*"/images/image-product-1.jpg"*/}
+
+
         <div className="absolute z-10 flex justify-between top-[8rem] w-full p-2 ">{/*next back element*/}
-          <img src="/images/icon-previous.svg" alt=""  className="bg-white rounded-full  p-3 "/>
-          <img src="/images/icon-next.svg" alt=""  className="bg-white rounded-full  p-3"/>
+          <img src="/images/icon-previous.svg" alt=""  className="bg-white rounded-full  p-3 "
+          onClick={()=>setnext((next-1 +prodectImgs.length) %prodectImgs.length)}
+          />
+          <img src="/images/icon-next.svg" alt=""  className="bg-white rounded-full  p-3"
+          onClick={()=>setnext((next+1)%prodectImgs.length)}
+
+          />
         </div>
       </div>
       <div className="p-8 space-y-6">{/*content*/}
