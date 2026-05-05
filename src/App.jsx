@@ -6,13 +6,14 @@ export default function App(){
   const [score ,setScore]=useState(0)
   const [next ,setnext]=useState(0)
   const [cart , setCart]=useState(null)
+  const [showCart, setShowCart] = useState(false)
 
   const prodectImgs=["image-product-1.jpg", "image-product-2.jpg", "image-product-3.jpg", "image-product-4.jpg"]
   const navItems=['Collections', "Men", "Women", "About", "Contact"]
   return (
 
      <div className=" min-h-screen md:p-8 ">
-      <div className="flex justify-between p-4 items-center"> {/*for the nav*/}
+      <div className="flex justify-between p-6 items-center "> {/*for the nav*/}
         <div className="flex gap-4 items-center justify-center">
           <div>
             <div>
@@ -56,9 +57,9 @@ export default function App(){
           onClick={()=>setCart()}
 
           />
-          {cart && cart.quntity >0 &&(
+          {cart && cart.quantity >0 &&(
             <div className="absolute top-[-10px]  right-[-4px] bg-orange-500 px-1 shadow-orange-400 rounded-full text-white text-center text-xs">
-              {cart.quntity}
+              {cart.quantity}
             </div>
           )}
           </div>
@@ -70,7 +71,7 @@ export default function App(){
                   <div>
                     <img src={`/images/${cart.image}`} alt="" />
                     <p>{cart.title}</p>
-                    <p>${cart.price} *{cart.quntity}</p>
+                    <p>${cart.price} *{cart.quantity}</p>
                   </div>
 
                 </div>
@@ -140,8 +141,8 @@ export default function App(){
             {
               title:"Fall Limited Edition Sneakers",
               price:125,
-              quntity:score,
-              img:prodectImgs[0]
+              quantity:score,
+              image:prodectImgs[0]
             }
           )
         }}
