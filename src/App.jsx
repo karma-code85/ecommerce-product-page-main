@@ -6,7 +6,6 @@ export default function App(){
   const [score ,setScore]=useState(0)
   const [next ,setnext]=useState(0)
   const [cart , setCart]=useState(null)
-  const [showCart, setShowCart] = useState(false)
 
   const prodectImgs=["image-product-1.jpg", "image-product-2.jpg", "image-product-3.jpg", "image-product-4.jpg"]
   const navItems=['Collections', "Men", "Women", "About", "Contact"]
@@ -103,7 +102,7 @@ export default function App(){
       </div>
       <div className="flex justify-evenly ">
       {prodectImgs.map((img)=>(
-          <div key={img} className="hidden md:flex flex-col size-20 ">
+          <div key={img} className="hidden md:flex flex-col size-20 cursor-pointer hover:p-2 focus:bg-sky-500 outline-orange-500">
             <img src={`/images/${img}`} alt=""  className="rounded"/>
           </div>
         ))}
