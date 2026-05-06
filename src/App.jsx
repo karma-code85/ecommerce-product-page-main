@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 
 
 
@@ -8,7 +8,7 @@ export default function App(){
   const [next ,setnext]=useState(0)
   const [cart , setCart]=useState(null)
 
-  
+
 
   const prodectImgs=["image-product-1.jpg", "image-product-2.jpg", "image-product-3.jpg", "image-product-4.jpg"]
   const navItems=['Collections', "Men", "Women", "About", "Contact"]
